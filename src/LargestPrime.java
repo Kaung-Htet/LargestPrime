@@ -1,4 +1,27 @@
 public class LargestPrime {
+    public static int getLargestPrime (int number){
+        if (number <= 0){
+            return -1;
+        }
+
+        int nextNum = 0;
+        int largestNum = 0;
+
+        int i = 2;
+        while (i < number){
+            i++;
+            if ((number % i) == 0) {
+                number /= i;
+                nextNum = i;
+                i = 2;
+                if (nextNum > largestNum){
+                    largestNum = nextNum;
+                }
+            }
+        }
+
+        return largestNum;
+    }
 }
 
 //Write a method named getLargestPrime with one parameter of type int named number.
