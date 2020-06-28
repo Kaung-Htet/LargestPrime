@@ -5,6 +5,10 @@ public class Main {
         System.out.println(LargestPrime.getLargestPrime(0));
         System.out.println(LargestPrime.getLargestPrime(45));
         System.out.println(LargestPrime.getLargestPrime(-1));
+        System.out.println(LargestPrime.getLargestPrime(2));
+        System.out.println(LargestPrime.getLargestPrime(16));
+
+
     }
 }
 

@@ -1,6 +1,6 @@
 public class LargestPrime {
     public static int getLargestPrime (int number){
-        if (number <= 0){
+        if (number <= 1){
             return -1;
         }
 
@@ -8,20 +8,41 @@ public class LargestPrime {
         int largestNum = 0;
 
         int i = 2;
-        while (i < number){
-            i++;
+        while (i <= number){
             if ((number % i) == 0) {
                 number /= i;
                 nextNum = i;
                 i = 2;
-                if (nextNum > largestNum){
-                    largestNum = nextNum;
+
+                //to check prime number
+
+                //extra method is not accepted for assignment
+                if (isPrimeNumber(nextNum)) {
+                    if (nextNum > largestNum) {
+                        largestNum = nextNum;
+                    }
                 }
             }
+            i++;
         }
 
         return largestNum;
     }
+
+     public static boolean isPrimeNumber (int number){
+        if (number == 2){
+            return true;
+        }
+
+        int j = 2;
+        while (j < number){
+            if ((number % j) == 0){
+                return false;
+            }
+            j++;
+        }
+        return true;
+     }
 }
 
 //Write a method named getLargestPrime with one parameter of type int named number.
