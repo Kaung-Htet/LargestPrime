@@ -1,49 +1,61 @@
 public class LargestPrime {
-    public static int getLargestPrime (int number){
-        if (number <= 1){
+    public static int getLargestPrime(int number) {
+        if (number <= 1) {
             return -1;
         }
 
         int nextNum = 0;
         int largestNum = 0;
+        int count = 0;
 
         int i = 2;
-        while (i <= number){
+        while (i <= number) {
             if ((number % i) == 0) {
                 number /= i;
                 nextNum = i;
-                i = 2;
 
-                //to check prime number
+                //check prime number
+                //စားလို့ပြတ်တဲ့အကြိမ်အရေအတွက်က ၂ ကြိမ်မပြည့်ရင် prime number
+                for (int j = 1; j < nextNum; j++) {
+                    if ((nextNum % j) == 0) {
+                        count++;
+                    }
+                }
 
                 //extra method is not accepted for assignment
-                if (isPrimeNumber(nextNum)) {
+                //စားလို့ပြတ်တဲ့အကြိမ်အရေအတွက်က ၂ ကြိမ်မပြည့်ရင် prime number
+                if (count < 2) {
                     if (nextNum > largestNum) {
                         largestNum = nextNum;
                     }
                 }
+                //reset initial divider & count
+                count = 0;
+                i = 2;
             }
             i++;
         }
-
         return largestNum;
     }
-
-     public static boolean isPrimeNumber (int number){
-        if (number == 2){
-            return true;
-        }
-
-        int j = 2;
-        while (j < number){
-            if ((number % j) == 0){
-                return false;
-            }
-            j++;
-        }
-        return true;
-     }
 }
+
+//extra method is not accepted for assignment
+//     public static boolean isPrimeNumber (int number){
+//        if (number == 2){
+//            return true;
+//        }
+//
+//        int j = 2;
+//        while (j < number){
+//            if ((number % j) == 0){
+//                return false;
+//            }
+//            j++;
+//        }
+//        return true;
+//     }
+
+
 
 //Write a method named getLargestPrime with one parameter of type int named number.
 //

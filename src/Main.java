@@ -8,7 +8,6 @@ public class Main {
         System.out.println(LargestPrime.getLargestPrime(2));
         System.out.println(LargestPrime.getLargestPrime(16));
 
-
     }
 }
 
